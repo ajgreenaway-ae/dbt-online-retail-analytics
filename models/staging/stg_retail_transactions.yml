@@ -1,0 +1,49 @@
+models:
+  - name: stg_retail__transactions
+    description: Staged retail transactions. One row per invoice line item added. 
+                 Items may appear multiple times if added multiple times
+    columns:
+      - name: order_id
+        description: Primary key for orders
+        tests:
+          - not_null
+      - name: order_date
+        description: Date of order
+        tests:
+          - not_null
+      - name: order_datetime
+        description: Date timestamp of order
+        tests:
+          - not_null
+      - name: product_id
+        description: Id of product in order
+        tests:
+          - not_null
+      - name: description
+        description: Description of product in order
+      - name: price
+        description: Unit price of product in order
+        tests:
+          - not_null
+      - name: quantity
+        description: Quantity of product in order. Negative for cancelled orders
+        tests:
+          - not_null
+      - name: gross_amount
+        description: Gross price corresponding to this product in order. Negative for cancelled orders
+        tests:
+          - not_null
+      - name: customer_id
+        description: Customer ID making the order - nullable
+      - name: country
+        description: Country of order
+        tests:
+          - not_null
+      - name: is_cancelled
+        description: Boolean for whether order is cancelled
+        tests:
+          - not_null
+      - name: is_refund
+        description: Boolean for whether order is refunded
+        tests:
+          - not_null

@@ -1,0 +1,15 @@
+version: 2
+
+sources:
+  - name: retail
+    description: >
+      Raw transactional data from a UK-based online retailer.
+      Data is loaded from a CSV and treated as immutable.
+      Data Source: https://www.kaggle.com/datasets/shashanks1202/retail-transactions-online-sales-dataset
+    schema: Analytics 
+
+    tables:
+      - name: Transactions_All
+        description: >
+          One row per invoice line item.
+          Includes quantities, unit prices, customer IDs, and invoice timestamps.
