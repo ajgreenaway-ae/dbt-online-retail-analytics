@@ -1,0 +1,23 @@
+models:
+  - name: fct_order_items
+    description: fact table for items within order, 1 row per item & order
+    data_tests:
+      - dbt_utils.unique_combination_of_columns:
+          arguments:
+            combination_of_columns:
+              - order_id
+              - product_id
+    columns: 
+      - name: orderline_id
+        description: The primary key for order_items.
+        tests:
+          - unique
+          - not_null
+  - name: fct_orders
+    description: fact table for orders, 1 row per order
+    columns: 
+      - name: order_id
+        description: The primary key for orders.
+        tests:
+          - unique
+          - not_null

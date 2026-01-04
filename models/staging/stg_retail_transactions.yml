@@ -30,7 +30,7 @@ models:
         tests:
           - not_null
       - name: gross_amount
-        description: Gross price corresponding to this product in order. Negative for cancelled orders
+        description: Gross price corresponding to this product in order.
         tests:
           - not_null
       - name: customer_id

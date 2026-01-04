@@ -7,8 +7,8 @@ aggregated as
     select
     {{ dbt_utils.generate_surrogate_key(['order_id', 'product_id']) }} as orderline_id,
     order_id,
-    order_date,
-    order_datetime,
+    min(order_date) as order_date,
+    min(order_datetime) as order_datetime,
     product_id,
     sum(price*quantity)/sum(quantity) as price,
     sum(quantity) as quantity,
